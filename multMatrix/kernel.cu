@@ -78,7 +78,9 @@ int main()
     printf("Exectution time [ET-GPU]: %4.6f \n\r", cps_gpu);
 
     cudaDeviceReset();
-    cudaFree(aData);
+    cudaFree(dA);
+    cudaFree(dB);
+    cudaFree(dC);
     return 0;
 
 }
