@@ -72,5 +72,13 @@ int main()
     gpuStart = clock();
     multVec << <grid, block >> > (dA, dB, dC, aCols, cRows, cCols);
     cudaDeviceSynchronize();
+    
+    gpuStop = clock();
+    double cps_gpu = (double)((double)(gpuStop - gpuStart) / CLOCKS_PER_SEC);
+    printf("Exectution time [ET-GPU]: %4.6f \n\r", cps_gpu);
+
+    cudaDeviceReset();
+    cudaFree(aData);
+    return 0;
 
 }
